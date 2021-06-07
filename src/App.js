@@ -1,13 +1,21 @@
-import React from 'react';
-import Signin from './components/Signin/Signin';
+import React, { useEffect } from 'react';
+import { Home, Loading, Signin } from './components';
 import { useLocalContext } from './context/context';
-import Loading from './components/loading/Loading';
+
 
 function App() {
-  const { appState } = useLocalContext();
+  const { appState, setAppState } = useLocalContext();
+
+  useEffect(() => {
+    if (appState === 'loading') {
+      setTimeout(() => {
+        setAppState('home')
+      }, 5000)
+    }
+  })
   return (
     <div className="App">
-      {appState === 'home' && <h1>Home</h1>}
+      {appState === 'home' && <Home />}
       {appState === 'login' && <Signin />}
       {appState === 'loading' && <Loading />}
     </div>

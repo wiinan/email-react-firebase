@@ -52,7 +52,7 @@ export default function Signup({ showSignup }) {
                 setEmailError({ state: true, msg: 'E-mail já Existe' })
                 setLoading(false)
                 setFormData({ ...formData, email: '' })
-                setEmailError({ state: false, msg: '' })
+                setPasswordError({ state: false, msg: '' })
             } else if (error.code === 'auth/invalid-email') {
                 setEmailError({ state: true, msg: 'E-mail Invalido' })
                 setLoading(false);

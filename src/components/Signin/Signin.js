@@ -46,7 +46,7 @@ export default function Signin() {
                     {loading && <CircularProgress className='login__loading' />}
                     <div className={`login__wrapper ${loading && 'login__fade'}`}>
                         <img className='login__logo' src='/assets/google.svg' alt='Google' />
-                        <p className='login__title'>Sign In</p>
+                        <p className='login__title'>Entrar</p>
                         <p className='login__subtitle'>Continue no Gmail</p>
                         <form className='login__form'>
                             <TextField id='outlined-basic' className='login__input' label='E-mail' variant='outlined' type='email' value={email} onChange={(e) => setEmail(e.target.value)} error={emailError.state} helperText={emailError.msg}/>

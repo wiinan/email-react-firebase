@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+.drawer{
+    margin-top: 30px !important;
+}
+.MuiDrawer-paperAnchorDockedLeft{
+    margin-top: 70px !important;
+    background: transparent !important;
+    border: none !important;
+}
+.sidebar__compose{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin:20px;
+    margin-left: 12px;
+    margin-top: 12px;
+    border-radius: 30px;
+    padding: 5px !important;
+    width: 135px !important;
+    height: 40px !important;
+    cursor: pointer;
+}
+.sidebar__addIMG{
+    margin-right: 10px;
+    margin-left: 15px;
+}
+.sidebar__compose > p {
+    font-family: 'Roboto';
+    font-weight: 500 !important;
+    letter-spacing: 1px;
+}
+.sidebar__composeClose{
+    width: 45px !important;
+    height: 45px !important;
+}
+.sidebar__btns{
+    max-height: 350px;
+    height: 150px;
+    min-height: 100px;
+    overflow: auto;
+}
+.sidebar__btn{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius:25px ;
+    height: 30px;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-top: 8px !important;
+}
+.sidebar__topBtn {
+    margin-top: 7px;
+}
+.sidebar__btnClose{
+    border-top-left-radius:25px ;
+    border-top-right-radius: 25px;
+    margin-left: 20px;
+    margin-top: -5px;
+    width: 30px;
+    height: 30px;
+}
+.sidebar__icon{
+    color: white;
+}
+.sidebar__btnLeft{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sidebar__btnLeft > p {
+    margin-left:10px ;
+    font-weight: 700;
+    color: rgba(255,255,255,1);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.65) !important;
+}
+.sidebar__active{
+    background-color: rgba(255,255,255,0.3) !important;
+}
+.sidebar__unread{
+    margin-right: 10px;
+    color: rgba(255,255,255,1) !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.65) !important;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    font-size: 0.75rem;
+}
+.sidebar__btn:hover{
+    background-color: rgba(255,255,255,0.2);
+}
+.sidebar__btns::-webkit-scrollbar{
+    width: 10px;
+}
+.sidebar__btns::-webkit-scrollbar-thumb{
+    background: #637589;
+    display: none !important;
+}
+.sidebar__btns::-webkit-scrollbar-thumb:hover{
+    background: #d9dde2 !important;
+}
+.sidebar__btns:hover::-webkit-scrollbar-thumb{
+    background: #637589;
+    display: block !important;
+}
+.navbar__meetOptions{
+    box-shadow: 0 1px 0 rgba(255,255,255,0.12);
+    margin-bottom: 10px;
+}
+.navbar__meetTitle{
+    font-family: 'Google Sans',Roboto,RobotoDraft,Arial, Helvetica, sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.25px;
+    border-radius: 0;
+    color: rgba(255,255,255,1);
+    font-weight: 500;
+    line-height: 32px;
+    max-height: 32px;
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
