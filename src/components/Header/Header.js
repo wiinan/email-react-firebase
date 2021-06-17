@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
     const [anchorEl, setAnchorEl] = useState(null);
     const classes = useStyles();
-    const { currentUser, setDrawerOpen, drawerOpen } = useLocalContext();
+    const { currentUser, setDrawerOpen, drawerOpen, setAppState } = useLocalContext();
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -24,7 +24,10 @@ export default function Header() {
     }
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
-    const signout = () => auth.signOut();
+    const signout = () => {
+        auth.signOut()
+        setAppState('login')
+    };
     return (
         <div className='home__header'>
             <div className='home__left'>

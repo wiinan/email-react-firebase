@@ -2,13 +2,24 @@ import { Badge } from '@material-ui/core';
 import { Inbox, Keyboard, Videocam } from '@material-ui/icons';
 import React, { useState } from 'react';
 import { useLocalContext } from '../../context/context';
+import { useMailContext } from '../../context/MailContext';
 
 export default function SidebarNavBtn() {
     const { drawerOpen } = useLocalContext();
     const [active, setActive] = useState('inbox')
+    const { setMailsType, inboxUnreadNo } = useMailContext()
+
+    const updatePrimaryActive = () => {
+        setMailsType('Primary')
+        setActive('inbox')
+    }
+    const sentActive = () => {
+        setMailsType('Sent')
+        setActive('sent')
+    }
     return (
         <div className='sidebar__btns'>
-            <div className={`sidebar__btn sidebar__topBtn ${!drawerOpen && 'sidebar__btnClose'} ${active === 'inbox' && 'sidebar__active'}`} onClick={() => setActive('inbox')}>
+            <div className={`sidebar__btn sidebar__topBtn ${!drawerOpen && 'sidebar__btnClose'} ${active === 'inbox' && 'sidebar__active'}`} onClick={updatePrimaryActive}>
                 <div className={`sidebar__btnLeft ${!drawerOpen && 'sidebar__btnLeftClose'}`}>
                     {drawerOpen ? (
                         <>
@@ -21,15 +32,15 @@ export default function SidebarNavBtn() {
                     )}
                 </div>
                 <div className={`sidebar__unread ${!drawerOpen && 'sidebar__unreadClose'}`}>
-                    <p>10</p>
+                    <p>{inboxUnreadNo}</p>
                 </div>
             </div>
-            <div onClick={() => setActive('sent')} className={`sidebar__btn sidebar__topBtn ${!drawerOpen && 'sidebar__btnClose'} ${active === 'sent' && 'sidebar__active'}`}>
+            <div onClick={sentActive} className={`sidebar__btn sidebar__topBtn ${!drawerOpen && 'sidebar__btnClose'} ${active === 'sent' && 'sidebar__active'}`}>
                 <div className={`sidebar__btnLeft ${!drawerOpen && 'sidebar__btnLeftClose'}`}>
                     {drawerOpen ? (
                         <>
                             <Inbox className='sidebar__icon' />
-                            <p>Enviado</p>
+                            <p>Enviados</p>
                         </>) : (
                         <Badge badgeContent={0} color='error'>
                             <Inbox className='sidebar__icon' />
@@ -94,7 +105,7 @@ export function MeetBtns() {
                             <Keyboard className='sidebar__icon' />
                             <p>Entrar em Reuniao</p>
                         </>) : (
-                            <Keyboard className='sidebar__icon' />
+                        <Keyboard className='sidebar__icon' />
                     )}
                 </div>
                 <div className={`sidebar__unread ${!drawerOpen && 'sidebar__unreadClose'}`}>

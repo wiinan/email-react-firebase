@@ -4,6 +4,7 @@ import { useLocalContext } from '../../context/context';
 import './Sidebar.css';
 import clsx from 'clsx';
 import SidebarNavBtn, { MeetBtns } from './SidebarNavBtn';
+import { Chat, Person } from '@material-ui/icons';
 
 const drawerWidth = 256;
 const useStyles = makeStyles((theme) => ({
@@ -30,9 +31,9 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-export default function Sidebar() {
+export default function Sidebar({children}) {
     const classes = useStyles();
-    const { drawerOpen, currentUser } = useLocalContext();
+    const { drawerOpen, currentUser, setComposeOpen } = useLocalContext();
     return (
         <div className='sidebar'>
             <div className={classes.root}>
@@ -45,7 +46,7 @@ export default function Sidebar() {
                         [classes.drawerClose]: !drawerOpen
                     })
                 }}>
-                    <div className={`sidebar__compose ${!drawerOpen && 'sidebar__composeClose'}`}>
+                    <div onClick={()=>setComposeOpen(true)} className={`sidebar__compose ${!drawerOpen && 'sidebar__composeClose'}`}>
                         <img className='sidebar__addIMG' src='https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png' alt='add' />
                         <p>Escrever</p>
                     </div>
@@ -54,10 +55,10 @@ export default function Sidebar() {
                     <div className='sidebar__hangoutOptions'>
                         <div className='sidebar__hangoutWrapper'>
                             <p className='navbar__meetTitle'>Hangouts</p>
-                            <div className='sidebar__Hangoutbadge'>
+                            <div className='sidebar__Hangoutsbadge'>
                                 <Badge anchorOrigin={{
-                                    vertical:'bottom',
-                                    horizontal:'right'
+                                    vertical: 'bottom',
+                                    horizontal: 'right'
                                 }} overlap='circle' color='error' variant='dot'
                                 >
                                     <Avatar className='sidebar__avatarSmall' />
@@ -66,7 +67,17 @@ export default function Sidebar() {
                             </div>
                         </div>
                     </div>
+                    <div className='sidebar__hangoutChats' >
+                        <div className='sidebar__hangoutImg'></div>
+                        <p>Sem chats Recentes</p>
+                        <p>Comerçar um novo</p>
+                    </div>
+                    <div className='sidebar__footer'>
+                        <Person />
+                        <Chat />
+                    </div>
                 </Drawer>
+                {children}
             </div>
         </div>
     )
